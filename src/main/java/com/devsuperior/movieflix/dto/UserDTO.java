@@ -1,6 +1,7 @@
 package com.devsuperior.movieflix.dto;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import com.devsuperior.movieflix.entities.User;
 

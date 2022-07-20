@@ -37,6 +37,13 @@ public class UserService implements UserDetailsService {
 		return new UserDTO(entity);
 	}
 	
+	@Transactional(readOnly = true)
+	public UserDTO profileForCurrentUser() {
+		User user = authService.authenticated();
+		User userProfile = repository.findByEmail(user.getEmail());
+		return new UserDTO(userProfile);
+	}
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
